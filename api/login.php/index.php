@@ -4,53 +4,119 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>دخول - L3A9ID Hosting</title>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<script async="" defer="" src="https://www.google.com/recaptcha/api.js"></script>
+<title>L3A9ID Hosting | الحل الأمثل لاستضافة البوتات والمواقع</title>
+<meta content="استضافة سحابية متقدمة تدعم Python, Node.js, PHP. تحكم كامل في ملفاتك، تشغيل 24/7، وحماية فائقة. ابدأ رحلتك الآن مجاناً." name="description"/>
+<link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" referrerpolicy="no-referrer" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&amp;family=Outfit:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Outfit:wght@300;600&display=swap');
+        /* --- إعدادات التصميم العامة --- */
+        /* ============================================ */
+        /* جميع الحقوق محفوظة © 2026 L3A9ID */
+        /* ============================================ */
+        :root {
+            --bg-dark: #020617;
+            --bg-card: #0f172a;
+            --primary: #3b82f6;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; }
+
+        /* --- الهيدر والناف بار --- */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; position: absolute; top: 0; left: 0; right: 0; z-index: 100;
+        }
+        .brand { font-size: 1.5rem; font-weight: 900; display: flex; align-items: center; gap: 10px; }
+        .brand i { color: var(--primary); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-btn {
+            padding: 10px 25px; border-radius: 50px; font-weight: 700; font-size: 0.9rem;
+        }
+        .btn-login { border: 1px solid rgba(255,255,255,0.2); color: white; }
+        .btn-login:hover { background: white; color: var(--bg-dark); }
+        .btn-reg { background: var(--primary); color: white; border: 1px solid var(--primary); }
+        .btn-reg:hover { background: var(--secondary); border-color: var(--secondary); }
+
+        /* --- قسم الهيرو (الرئيسي) --- */
+        .hero {
+            min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 100px 20px;
+            background: radial-gradient(circle at top, rgba(59, 130, 246, 0.15), transparent 60%);
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; line-height: 1.2;
+            background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero h1 span { color: var(--primary); -webkit-text-fill-color: var(--primary); }
+        .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin-bottom: 40px; }
         
-        :root { --primary: #3b82f6; --bg-dark: #0f172a; --text: #f1f5f9; }
-        
-        body { margin: 0; min-height: 100vh; font-family: 'Cairo', sans-serif; background: var(--bg-dark); color: var(--text); display: flex; align-items: center; justify-content: center; overflow-x: hidden; position: relative; }
-        .bg-anim { position: absolute; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
-        .circle { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.4; animation: float 10s infinite alternate; }
-        .c1 { width: 300px; height: 300px; background: #3b82f6; top: -50px; left: -50px; }
-        .c2 { width: 400px; height: 400px; background: #8b5cf6; bottom: -100px; right: -100px; animation-delay: -5s; }
-        @keyframes float { 0% { transform: translate(0, 0); } 100% { transform: translate(30px, 50px); } }
+        .cta-box { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn-lg { padding: 15px 40px; font-size: 1.1rem; border-radius: 12px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+        .btn-glow { background: var(--primary); box-shadow: 0 0 30px rgba(59, 130, 246, 0.4); }
+        .btn-glow:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(59, 130, 246, 0.6); }
 
-        .auth-container { width: 100%; max-width: 420px; padding: 20px; position: relative; z-index: 10; }
-        .auth-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 24px; padding: 40px 30px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
-        
-        .logo-area { text-align: center; margin-bottom: 30px; }
-        .logo-icon { font-size: 40px; color: var(--primary); margin-bottom: 10px; display: inline-block; }
-        .logo-text { font-size: 24px; font-weight: 800; font-family: 'Outfit', sans-serif; letter-spacing: 1px; }
+        /* --- شريط الإحصائيات --- */
+        .stats-bar {
+            display: flex; justify-content: center; gap: 50px; margin-top: 60px; flex-wrap: wrap;
+            padding: 30px; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(15, 23, 42, 0.5); backdrop-filter: blur(10px); width: 100%;
+        }
+        .stat-item h3 { font-size: 2rem; margin: 0; color: white; font-family: 'Outfit'; }
+        .stat-item p { color: var(--text-muted); margin: 0; font-size: 0.9rem; }
 
-        .tabs { display: flex; background: rgba(0,0,0,0.2); padding: 5px; border-radius: 12px; margin-bottom: 25px; }
-        .tab-btn { flex: 1; padding: 10px; border: none; background: transparent; color: #94a3b8; font-family: 'Cairo'; font-weight: bold; cursor: pointer; border-radius: 8px; transition: 0.3s; }
-        .tab-btn.active { background: var(--primary); color: white; }
+        /* --- المميزات --- */
+        .section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+        .sec-title { text-align: center; margin-bottom: 60px; }
+        .sec-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .sec-title p { color: var(--text-muted); }
 
-        .inp-group { position: relative; margin-bottom: 20px; }
-        .inp-icon { position: absolute; top: 50%; transform: translateY(-50%); right: 15px; color: #64748b; }
-        .inp { width: 100%; padding: 14px 45px 14px 15px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: white; font-family: 'Cairo'; font-size: 14px; outline: none; box-sizing: border-box; transition: 0.3s; }
-        .inp:focus { border-color: var(--primary); background: rgba(15, 23, 42, 0.8); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .feature-card {
+            background: var(--bg-card); padding: 30px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .f-icon { width: 60px; height: 60px; background: rgba(59, 130, 246, 0.1); border-radius: 15px; display: flex; align-items: center; justify-content: center; font-size: 25px; color: var(--primary); margin-bottom: 20px; }
+        .feature-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.95rem; }
 
-        .btn { width: 100%; padding: 14px; background: var(--primary); border: none; border-radius: 12px; color: white; font-weight: bold; font-family: 'Cairo'; font-size: 16px; cursor: pointer; transition: 0.3s; margin-top: 10px; }
-        .btn:hover { background: #2563eb; transform: translateY(-2px); }
+        /* --- اللغات المدعومة --- */
+        .tech-section { background: #0f172a; padding: 80px 5%; text-align: center; }
+        .tech-grid { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 40px; }
+        .tech-item {
+            background: rgba(255,255,255,0.03); padding: 20px 40px; border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 15px;
+            font-weight: bold; font-size: 1.2rem;
+        }
+        .tech-item i { font-size: 2rem; }
 
-        .alert { padding: 15px; border-radius: 10px; font-size: 14px; margin-bottom: 20px; text-align: center; line-height: 1.6; }
-        .alert-error { background: rgba(239, 68, 68, 0.2); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
-        .alert-success { background: rgba(16, 185, 129, 0.2); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+        /* --- الأسئلة الشائعة --- */
+        .faq-grid { display: grid; gap: 20px; max-width: 800px; margin: 0 auto; }
+        .faq-item { background: var(--bg-card); padding: 25px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+        .faq-item h4 { margin: 0 0 10px; color: var(--accent); }
+        .faq-item p { margin: 0; color: var(--text-muted); font-size: 0.95rem; }
 
-        .form-section { display: none; animation: fadeIn 0.4s; }
-        .form-section.active { display: block; }
-        @keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
-        .g-recaptcha { display: flex; justify-content: center; margin-bottom: 15px; transform: scale(0.9); transform-origin: center; }
-        .footer-links { text-align: center; margin-top: 20px; font-size: 13px; color: #64748b; }
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.2s; }
-        .footer-links a:hover { color: white; }
-        
-        .telegram-login-container { text-align: center; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        /* --- الفوتر --- */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05); padding: 40px 5%;
+            text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-top: 80px;
+        }
         
         /* --- حقوق L3A9ID في كل مكان --- */
         .watermark {
@@ -66,6 +132,13 @@
             padding: 5px 15px; font-size: 0.8rem; margin-right: 10px;
             color: var(--primary);
         }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .navbar { padding: 20px; }
+            .nav-links { display: none; } /* يمكن إضافة قائمة منسدلة لاحقاً */
+        }
     </style>
 </head>
 <body>
@@ -76,71 +149,146 @@
 // ------------------------------------------------------------------
 <!-- ================================================================== -->
 <div class="watermark">© 2026 L3A9ID</div>
-<div class="bg-anim">
-<div class="circle c1"></div>
-<div class="circle c2"></div>
+<nav class="navbar">
+<a class="brand" href="index.php">
+<i class="fa-solid fa-layer-group"></i> L3A9ID Hosting
+        </a>
+<div class="nav-links">
+<a class="nav-btn btn-login" href="login.php">تسجيل الدخول</a>
+<a class="nav-btn btn-reg" href="login.php">حساب جديد</a>
 </div>
-<div class="auth-container">
-<div class="auth-card">
-<div class="logo-area">
-<i class="fa fa-cloud-bolt logo-icon"></i>
-<div class="logo-text">L3A9ID Hosting <span class="signature-badge"><i class="fa-regular fa-copyright"></i> L3A9ID</span></div>
+</nav>
+<section class="hero">
+<div style="background: rgba(59, 130, 246, 0.1); color:var(--primary); padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 20px; border: 1px solid rgba(59, 130, 246, 0.2);">
+            ✨ الجيل الجديد من الاستضافة السحابية <span class="signature-badge"><i class="fa-regular fa-copyright"></i> L3A9ID</span>
 </div>
-<div class="tabs">
-<button class="tab-btn active" onclick="showTab('login')">تسجيل الدخول</button>
-<button class="tab-btn" onclick="showTab('register')">حساب جديد</button>
+<h1>استضف مشاريعك البرمجية<br/>بأداء <span>خارق</span> وحماية متكاملة</h1>
+<p>
+            منصة متكاملة للمطورين لاستضافة بوتات التيليجرام، الديسكورد، وتطبيقات الويب.
+            <br/>
+            نقدم لك بيئة عمل معزولة، مدير ملفات متطور، وتشغيل دائم 24/7 بدون توقف.
+        </p>
+<div class="cta-box">
+<a class="btn-lg btn-glow" href="login.php" style="color: white;">
+<i class="fa-solid fa-rocket"></i> ابدأ تجربتك المجانية
+            </a>
+<a class="btn-lg" href="#features" style="background: rgba(255,255,255,0.05); color: white;">
+<i class="fa-solid fa-circle-info"></i> اكتشف المزيد
+            </a>
 </div>
-<form class="form-section active" id="login" method="POST">
-<div class="inp-group">
-<i class="fa fa-envelope inp-icon"></i>
-<input class="inp" name="log_email" placeholder="البريد الإلكتروني" required="" type="email"/>
+<div class="stats-bar">
+<div class="stat-item">
+<h3>+3</h3>
+<p>سيرفر يعمل حالياً</p>
 </div>
-<div class="inp-group">
-<i class="fa fa-lock inp-icon"></i>
-<input class="inp" name="log_password" placeholder="كلمة المرور" required="" type="password"/>
+<div class="stat-item">
+<h3>+90</h3>
+<p>مطور يثق بنا</p>
 </div>
-<div class="g-recaptcha" data-sitekey="6LeM31MsAAAAABEgoPmNBJZFA2eztcP-BYCFbhOg" data-theme="dark"></div>
-<button class="btn" name="login" type="submit">دخول للوحة</button>
-<div class="telegram-login-container">
-<p style="font-size: 12px; color: #64748b; margin-bottom: 10px;">أو سجل الدخول عبر</p>
-<script async="" data-auth-url="https://l3a9id-hosting.net/auth_telegram.php" data-radius="10" data-request-access="write" data-size="large" data-telegram-login="oo9tebot" data-userpic="false" src="https://telegram.org/js/telegram-widget.js?22">
-</script>
-</div>
-<div class="footer-links">
-<a href="forgot_password.php">نسيت كلمة المرور؟</a> | <span style="color: #3b82f6;">L3A9ID</span>
-</div>
-</form>
-<form class="form-section" id="register" method="POST">
-<div class="inp-group">
-<i class="fa fa-user inp-icon"></i>
-<input class="inp" name="reg_name" placeholder="الاسم الكامل" required="" type="text"/>
-</div>
-<div class="inp-group">
-<i class="fa fa-envelope inp-icon"></i>
-<input class="inp" name="reg_email" placeholder="البريد الإلكتروني" required="" type="email"/>
-</div>
-<div class="inp-group">
-<i class="fa fa-lock inp-icon"></i>
-<input class="inp" minlength="6" name="reg_password" placeholder="كلمة المرور (6+ أحرف)" required="" type="password"/>
-</div>
-<div class="g-recaptcha" data-sitekey="6LeM31MsAAAAABEgoPmNBJZFA2eztcP-BYCFbhOg" data-theme="dark"></div>
-<div style="font-size:12px; color:#64748b; margin-bottom:15px; text-align:right;">
-<input id="terms" required="" type="checkbox"/> <label for="terms">أوافق على <a href="#">الشروط والأحكام</a> الخاصة بـ <strong style="color: var(--primary);">L3A9ID</strong></label>
-</div>
-<button class="btn" name="register" style="background:#10b981;" type="submit">إنشاء حساب</button>
-</form>
-<div style="text-align: center; margin-top: 15px; font-size: 12px; color: #475569;">
-تم التطوير بواسطة <strong style="color: var(--primary);">L3A9ID</strong> © 2026
+<div class="stat-item">
+<h3>99.9%</h3>
+<p>نسبة التشغيل (Uptime)</p>
 </div>
 </div>
+</section>
+<!-- [ L3A9ID ] - بداية قسم المميزات -->
+<section class="section" id="features">
+<div class="sec-title">
+<h2>لماذا تختار L3A9ID Hosting؟ <span style="font-size: 1rem; color: var(--primary);">تصميم L3A9ID</span></h2>
+<p>نقدم لك أدوات احترافية تجعل إدارة مشاريعك أسهل وأسرع</p>
 </div>
-<script>
-        function showTab(id) {
-            document.querySelectorAll('.form-section').forEach(el => el.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            event.target.classList.add('active');
-        }
-    </script>
+<div class="features-grid">
+<div class="feature-card">
+<div class="f-icon"><i class="fa-solid fa-microchip"></i></div>
+<h3>أداء عالي (High Performance)</h3>
+<p>نستخدم معالجات قوية وأقراص NVMe فائقة السرعة لضمان استجابة فورية لبوتاتك وتطبيقاتك دون أي تأخير.</p>
+</div>
+<div class="feature-card">
+<div class="f-icon"><i class="fa-solid fa-shield-halved"></i></div>
+<h3>بيئة معزولة وآمنة</h3>
+<p>كل سيرفر يعمل داخل حاوية Docker معزولة تماماً، مما يضمن أمان ملفاتك وعدم تأثرك بالمستخدمين الآخرين.</p>
+</div>
+<div class="feature-card">
+<div class="f-icon"><i class="fa-solid fa-folder-tree"></i></div>
+<h3>مدير ملفات متطور</h3>
+<p>لا حاجة لاستخدام FTP! يمكنك رفع، تعديل، حذف، وفك ضغط الملفات مباشرة من المتصفح عبر لوحة تحكم سلسة.</p>
+</div>
+<div class="feature-card">
+<div class="f-icon"><i class="fa-solid fa-terminal"></i></div>
+<h3>لوحة تحكم (Console)</h3>
+<p>شاهد سجلات التشغيل (Logs) مباشرة، وقم بإيقاف وتشغيل السيرفر بضغطة زر واحدة مع تحديث فوري للحالة.</p>
+</div>
+<div class="feature-card">
+<div class="f-icon"><i class="fa-solid fa-code"></i></div>
+<h3>تثبيت تلقائي للمكاتب</h3>
+<p>نقوم بتثبيت مكاتب `pip` للبايثون و `npm` للنود تلقائياً عند التشغيل، لتوفر عليك عناء الإعداد اليدوي.</p>
+</div>
+<div class="feature-card">
+<div class="f-icon"><i class="fa-solid fa-headset"></i></div>
+<h3>دعم فني متواصل</h3>
+<p>فريقنا جاهز دائماً لمساعدتك في حل أي مشكلة برمجية أو تقنية تواجهك لضمان استمرار عمل مشاريعك.</p>
+</div>
+</div>
+<!-- جميع الحقوق محفوظة - L3A9ID 2026 -->
+</section>
+<!-- [ L3A9ID ] - نهاية قسم المميزات -->
+<section class="tech-section">
+<div class="sec-title">
+<h2>ندعم تقنياتك المفضلة <span style="color: var(--primary);">| L3A9ID</span></h2>
+<p>بيئة تشغيل مرنة تدعم أشهر لغات البرمجة</p>
+</div>
+<div class="tech-grid">
+<div class="tech-item" style="border-color: #3776AB;">
+<i class="fa-brands fa-python" style="color: #3776AB;"></i> Python 3.10
+            </div>
+<div class="tech-item" style="border-color: #68a063;">
+<i class="fa-brands fa-node-js" style="color: #68a063;"></i> Node.js 18
+            </div>
+<div class="tech-item" style="border-color: #777BB4;">
+<i class="fa-brands fa-php" style="color: #777BB4;"></i> PHP 8.2
+            </div>
+</div>
+<p style="margin-top:20px; color:#94a3b8;">ندعم كافة المكتبات الشهيرة: Telethon, Pyrogram, Discord.js, Flask, وغيرها.</p>
+</section>
+<!-- [ L3A9ID ] - الأسئلة الشائعة مع حقوق النشر -->
+<section class="section">
+<div class="sec-title">
+<h2>الأسئلة الشائعة <span style="font-size: 0.9rem; background: var(--primary); color: white; padding: 3px 10px; border-radius: 30px;">L3A9ID</span></h2>
+<p>إجابات على أكثر الاستفسارات التي تصلنا</p>
+</div>
+<div class="faq-grid">
+<div class="faq-item">
+<h4>هل الاستضافة مجانية؟</h4>
+<p>نعم، نوفر باقات مجانية للتجربة، بالإضافة إلى نظام "المحفظة" الذي يمكنك من تجميع النقاط عبر مشاهدة الإعلانات وشراء سيرفرات مدفوعة مجاناً.</p>
+</div>
+<div class="faq-item">
+<h4>كيف أرفع ملفاتي للسيرفر؟</h4>
+<p>بعد إنشاء السيرفر، ستجد زر "مدير الملفات". يمكنك رفع الملفات، إنشاء مجلدات، وحتى تعديل الكود مباشرة من المتصفح.</p>
+</div>
+<div class="faq-item">
+<h4>ماذا يحدث إذا أغلقت الصفحة؟</h4>
+<p>سيرفراتنا سحابية وتعمل 24/7. حتى لو أغلقت المتصفح أو أطفأت جهازك، سيستمر البوت أو الموقع بالعمل دون توقف.</p>
+</div>
+<div class="faq-item">
+<h4>هل يمكنني ترقية السيرفر لاحقاً؟</h4>
+<p>بالتأكيد. يمكنك في أي وقت شراء باقة أعلى بموارد أكبر (RAM/CPU) ونقل ملفاتك بسهولة.</p>
+</div>
+</div>
+</section>
+<!-- [ L3A9ID ] - الفوتر مع حقوق النشر -->
+<footer>
+<div style="margin-bottom: 20px;">
+<a href="#" style="margin:0 10px;"><i class="fa-brands fa-telegram fa-lg"></i></a>
+<a href="#" style="margin:0 10px;"><i class="fa-brands fa-discord fa-lg"></i></a>
+<a href="#" style="margin:0 10px;"><i class="fa-brands fa-twitter fa-lg"></i></a>
+</div>
+<p>جميع الحقوق محفوظة © 2026 L3A9ID Hosting - تم التطوير بحب للمطورين العرب.</p>
+<p style="font-size: 0.8rem; opacity: 0.6; margin-top: 10px;">All Rights Reserved | Designed & Developed by <strong style="color: var(--primary);">L3A9ID</strong> 🔥</p>
+</footer>
+<!-- ====================================================== -->
+// كل جزء في هذا السورس يحمل توقيع L3A9ID
+// Copyright © 2026 L3A9ID - جميع الحقوق محفوظة
+// لا يُسمح بنسخ أو إعادة استخدام الكود دون الإشارة إلى المصدر
+/* ====================================================== */
 </body>
 </html>
